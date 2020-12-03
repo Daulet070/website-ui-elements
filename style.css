@@ -14,7 +14,7 @@ body {
   margin: 0;
 }
 
-.container {
+.cards-wrapper {
     display: flex;
     width: 90vw;
 }
