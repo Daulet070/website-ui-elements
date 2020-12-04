@@ -11,4 +11,24 @@ nextBtn.addEventListener('click', () => {
     if (currentActive > stepPoints.length) {
         currentActive = stepPoints.length
     }
+    update();
 });
+prevBtn.addEventListener('click', () => {
+    currentActive--
+
+    if (currentActive < 1) {
+        currentActive = 1
+    }
+
+    update();
+});
+
+function update() {
+    stepPoints.forEach((circle, idx) => {
+        if (idx < currentActive) {
+            circle.classList.add('active')
+        } else {
+            circle.classList.remove('active')
+        }
+    })
+}
