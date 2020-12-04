@@ -1,4 +1,4 @@
-const progressLine = document.getElementById('pogress');
+const progressLine = document.getElementById('progress');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const stepPoints = document.querySelectorAll('.circle');
@@ -31,4 +31,19 @@ function update() {
             circle.classList.remove('active')
         }
     })
+    
+    const actives = document.querySelectorAll('.active');
+    let progress = (actives.length - 1) / (stepPoints.length - 1) * 100;
+    // console.log("🚀 ~ file: script.js ~ line 37 ~ update ~ progress", progress)
+    progressLine.style.width = progress + '%';
+
+    if (currentActive === 1) {
+        prevBtn.disabled = true
+
+    } else if ( currentActive === stepPoints.length) {
+        nextBtn.disabled = true
+    } else {
+        prevBtn.disabled = false
+        nextBtn.disabled = false
+    }
 }
